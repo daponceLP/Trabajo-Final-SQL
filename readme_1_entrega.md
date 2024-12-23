@@ -45,9 +45,9 @@ Esta base de datos esta diseñada para poder utilizarse con alguna herramienta d
 Almacena la información de las sucursales del supermercado.
 
 Campos:
- id_sucursal (INT)(PK): Identificador único de la sucursal.
- nombre_sucursal	(VARCHAR): Nombre de la sucursal.
- direccion (VARCHAR): Dirección física de la sucursal.
+ * id_sucursal (INT)(PK): Identificador único de la sucursal.
+ * nombre_sucursal	(VARCHAR): Nombre de la sucursal.
+ * direccion (VARCHAR): Dirección física de la sucursal.
  telefono (VARCHAR): Número de contacto de la sucursal.
  ciudad (VARCHAR): Ciudad donde se encuentra la sucursal.
  provincia (VARCHAR): Provincia donde se encuentra la sucursal.

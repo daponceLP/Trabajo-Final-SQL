@@ -45,14 +45,14 @@ Esta base de datos esta diseñada para poder utilizarse con alguna herramienta d
 Almacena la información de las sucursales del supermercado.
 
 Campos:
-id_sucursal (INT)(PK): Identificador único de la sucursal.
-nombre_sucursal	(VARCHAR): Nombre de la sucursal.
-direccion (VARCHAR): Dirección física de la sucursal.
-telefono (VARCHAR): Número de contacto de la sucursal.
-ciudad (VARCHAR): Ciudad donde se encuentra la sucursal.
-provincia (VARCHAR): Provincia donde se encuentra la sucursal.
-codigo_postal (VARCHAR): Código postal de la sucursal.
-fecha_apertura (DATE): Fecha en que la sucursal comenzó a operar.
+ id_sucursal (INT)(PK): Identificador único de la sucursal.
+ nombre_sucursal	(VARCHAR): Nombre de la sucursal.
+ direccion (VARCHAR): Dirección física de la sucursal.
+ telefono (VARCHAR): Número de contacto de la sucursal.
+ ciudad (VARCHAR): Ciudad donde se encuentra la sucursal.
+ provincia (VARCHAR): Provincia donde se encuentra la sucursal.
+ codigo_postal (VARCHAR): Código postal de la sucursal.
+ fecha_apertura (DATE): Fecha en que la sucursal comenzó a operar.
 
 Relaciones:
     Tabla ventas: campo id_sucursal

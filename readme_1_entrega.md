@@ -1,9 +1,9 @@
 # TRABAJO FINAL SQL
 
-@Alumno: Dario Ponce
-@Comision: 59430
-@Tutor: Nicolás Maugeri
-@Docente: Anderson Torres
+-Alumno: Dario Ponce
+-Comision: 59430
+-Tutor: Nicolás Maugeri
+-Docente: Anderson Torres
 
 ## Tematica del Proyecto
 La base de datos diseñada aborda las necesidades de gestión y operaciones de cualquier comercio, en especial para este trabajo se utilizo un ejemplo de supermercados.

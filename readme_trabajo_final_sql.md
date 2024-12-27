@@ -34,7 +34,7 @@ Esta base de datos esta diseñada para poder utilizarse con alguna herramienta d
 ## Diseño Orignal de Base de datos DER ONTOLOGICO
 ![alt text](der.jpeg)
 
-### DER WORKBENCH
+## DER WORKBENCH
 
 ![alt text](DER.png)
 
@@ -214,4 +214,67 @@ Relaciones:
     - Tabla sucursales:campo id_sucursal.
     - Tabla proveedor: campo id_proveedor.
     - Tabla articulos: campo sku.
+
+## USUARIOS
+
+Se crean 2 usuarios para el area comercial y para el area de operaciones y se asignan lo permisos correspondientes
+
+## OBJETOS
+### VISTAS
+
+Cada vista está diseñada para proporcionar información clave sobre las ventas, inventarios y proveedores en el contexto de un comercio.
+
+- vw_top_5_articulos_mas_vendidos: Muestra los 5 productos más vendidos, ordenados por la cantidad total vendida. Incluye el SKU, el nombre del producto y la cantidad total vendida.
+
+- vw_articulos: Proporciona información relevante de los productos, incluyendo SKU, nombre, costo, proveedor, categoría, subcategoría, y stock (calculado como la diferencia entre lo comprado, lo vendido y los ajustes).
+
+- vw_vencimientos: Muestra los productos con vencimiento próximo (en los próximos 5 días). Incluye el SKU, nombre del producto, fecha de vencimiento y los días restantes para que venza.
+
+- vw_sin_movimiento: Muestra los productos que no han tenido ventas en los últimos 30 días, incluyendo el SKU, nombre del producto y proveedor. Si no se ha registrado venta, se muestra como sin movimiento.
+
+- vw_ventas_por_sucursal: Detalla las ventas por sucursal, incluyendo nombre de la sucursal, ciudad, provincia, mes de la venta, cantidad de ventas, unidades vendidas, costo total, venta con IVA, categoría, subcategoría, y cantidad de clientes únicos por sucursal.
+
+### Funciones
+
+Estas funciones están diseñadas para facilitar el análisis de inventarios, ajustes y ventas en el contexto de tu base de datos de supermercado.
+
+- fn_dias_stock: Calcula los días de stock disponibles para un producto, basado en las ventas promedio diarias de los últimos 30 días. Si no hay ventas durante este período, la función devuelve 999 días. Usa el stock actual del producto y la venta diaria promedio para determinar cuántos días puede mantenerse en inventario.
+
+- categoria_mas_ajustes: Determina cuál es la categoría con más ajustes (modificaciones en inventario) en la base de datos. La función busca la categoría con el mayor número de ajustes registrados en la tabla ajustes y devuelve el nombre de la categoría correspondiente.
+
+- fn_total_ventas_producto: Calcula el total de ventas de un producto en un período específico. Recibe como parámetros el SKU del producto y el rango de fechas, y devuelve el total de ventas para ese producto, calculado como la suma de las unidades vendidas multiplicadas por su costo con IVA.
+
+### Procedimientos
+
+Estos procedimientos están diseñados para facilitar la inserción de proveedores y la obtención de reportes detallados de ventas en el sistema de un comercio
+
+agregar_proveedor: Permite agregar un nuevo proveedor al sistema. Recibe como parámetros el nombre del proveedor, la frecuencia de entrega y el método de pago. Inserta esta información en la tabla proveedor y devuelve el ID del nuevo proveedor agregado.
+
+ventas_por_fecha: Genera un reporte de ventas para un rango de fechas específico. Recibe dos parámetros: la fecha de inicio y la fecha de fin. El reporte incluye la fecha de la venta, el nombre del producto, la cantidad vendida, el costo total de las ventas, el nombre del cliente y el tipo de facturación, ordenado por la fecha de venta.
+
+### Triggers
+
+Estos triggers están diseñados para gestionar el stock de productos de manera automática, evitar ventas sin inventario y proteger los artículos que ya han sido vendidos de ser eliminados.
+
+- agregar_compras: Este trigger se activa después de insertar un nuevo registro en la tabla compras. Si el artículo ya existe en el inventario de una sucursal, actualiza el stock sumando la cantidad recibida. Si el artículo no existe, inserta un nuevo registro en la tabla stock_sucursal con el stock recibido.
+
+- descontar_ventas: Este trigger se activa después de insertar un nuevo registro en la tabla ventas. Verifica si hay suficiente stock disponible para la venta. Si hay stock suficiente, lo resta del inventario. Si no hay suficiente stock, genera un error indicando que no es posible realizar la venta debido a la falta de inventario.
+
+- no_borrar: Este trigger se activa antes de eliminar un artículo de la tabla articulos. Verifica si el artículo tiene ventas asociadas en la tabla ventas. Si tiene historial de ventas, impide la eliminación del artículo lanzando un error.
+
+## Herramientas y Documentacion utilizada
+
+### Herramientas tecnologicas
+- MySQL Workbench
+- Visual Studio Code
+- GitHub Desktop
+### Documentacion y asistencia
+- Manual de MySQL Workbench (https://dev.mysql.com/doc/workbench/en/)
+- claude.ia
+- ChatGPT.com
+### Otros
+- GitHub.com
+
+
+
 

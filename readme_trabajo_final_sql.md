@@ -275,6 +275,12 @@ Estos triggers están diseñados para gestionar el stock de productos de manera 
 ### Otros
 - GitHub.com
 
+## CONCLUSIONES
+
+Si bien el retail es un rubro en constante evolucion, he logrado generar una base de datos funcional que ayuda a resolver muchas de las problematicas que suelen encontrarse tanto desde el area comercial como desde la operacion del comercio.
+Los objetos generados son una muestra de las posibilidades de analisis que se pueden seguir agregando sin necesidad de altear la estructura del trabajo realizado.
+Esta Base de Datos es apta para utilizarse con diferentes herramientas de generacion de tableros tales como Power BI, Tableau, etc. lo que permitiria realizar una analisis mas detallado de los diferentes puntos de gestión que se necesitan para gestionar de manera correcta el negocio.
+
 
 
 

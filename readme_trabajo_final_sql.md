@@ -6,7 +6,7 @@
 - Docente: Anderson Torres
 
 ## Tematica del Proyecto
-La base de datos diseñada aborda las necesidades de gestión y operaciones de cualquier comercio, en especial para este trabajo se utilizo un ejemplo de supermercados.
+Abordar las necesidades de gestión de cualquier comercio, en especial para este trabajo se utilizo un ejemplo de supermercado.
 Las problemáticas que resuelve son las siguientes:
 
 1. Gestión de Sucursales
@@ -20,16 +20,11 @@ Las problemáticas que resuelve son las siguientes:
 
 Los beneficios de esta base de datos son:
 
- - Centralización de datos: Toda la información relevante está      unificada.
+ - Centralización de datos: Toda la información relevante está unificada.
  - Trazabilidad: Cada transacción (compra, venta, devolución, ajuste) está documentada, permitiendo auditar y analizar operaciones.
  - Automatización: Las relaciones entre tablas mediante claves primarias y foráneas simplifican la ejecución de consultas y reportes.
  - Escalabilidad: El modelo soporta la adición de más sucursales, productos, o clientes sin necesidad de rediseñar la estructura.
  
-Resumiendo, esta base de datos trata de ser una herramienta integral para optimizar los procesos operativos, logísticos y administrativos de un un comercio.
-
-Esta base de datos esta diseñada para poder utilizarse con alguna herramienta de visualizacion a fin de generar reportes que faciliten la interpretacion de los datos.
-
-
 
 ## Diseño Orignal de Base de datos DER ONTOLOGICO
 ![alt text](der.jpeg)
@@ -277,7 +272,8 @@ Estos triggers están diseñados para gestionar el stock de productos de manera 
 
 ## CONCLUSIONES
 
-Si bien el retail es un rubro en constante evolucion, he logrado generar una base de datos funcional que ayuda a resolver muchas de las problematicas que suelen encontrarse tanto desde el area comercial como desde la operacion del comercio.
+Esta base de datos trata de ser una herramienta integral para optimizar los procesos operativos, logísticos y administrativos de un un comercio.
+Si bien el retail es un rubro en constante evolucion, he logrado generar una base de datos funcional que ayuda a resolver la mayoria de las problematicas que suelen encontrarse en la gestion de un comercio.
 Los objetos generados son una muestra de las posibilidades de analisis que se pueden seguir agregando sin necesidad de altear la estructura del trabajo realizado.
 Esta Base de Datos es apta para utilizarse con diferentes herramientas de generacion de tableros tales como Power BI, Tableau, etc. lo que permitiria realizar una analisis mas detallado de los diferentes puntos de gestión que se necesitan para gestionar de manera correcta el negocio.
 

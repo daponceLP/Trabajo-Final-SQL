@@ -274,7 +274,7 @@ Estos triggers están diseñados para gestionar el stock de productos de manera 
 
 Esta base de datos trata de ser una herramienta integral para optimizar los procesos operativos, logísticos y administrativos de un un comercio.
 Si bien el retail es un rubro en constante evolucion, he logrado generar una base de datos funcional que ayuda a resolver la mayoria de las problematicas que suelen encontrarse en la gestion de un comercio.
-Los objetos generados son una muestra de las posibilidades de analisis que se pueden seguir agregando sin necesidad de altear la estructura del trabajo realizado.
+Los objetos generados son una muestra de las posibilidades de analisis que se pueden seguir agregando sin necesidad de alterar la estructura del trabajo realizado.
 Esta Base de Datos es apta para utilizarse con diferentes herramientas de generacion de tableros tales como Power BI, Tableau, etc. lo que permitiria realizar una analisis mas detallado de los diferentes puntos de gestión que se necesitan para gestionar de manera correcta el negocio.
 
 

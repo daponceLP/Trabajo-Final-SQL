@@ -263,7 +263,7 @@ Estos triggers están diseñados para gestionar el stock de productos de manera 
 - MySQL Workbench
 - Visual Studio Code
 - GitHub Desktop
-### Documentacion y asistencia
+### Documentacion
 - Manual de MySQL Workbench (https://dev.mysql.com/doc/workbench/en/)
 - claude.ia
 - ChatGPT.com

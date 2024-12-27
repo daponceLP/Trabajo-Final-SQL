@@ -1,25 +1,37 @@
--- FUNCION PARA DETERMINAR CUANTOS ARTICULOS TENGO CON STOCK POR CATEGORIA
-
+-- Función para calcular días de stock basado en ventas promedio
 USE supermercado;
-DROP FUNCTION IF EXISTS contar_articulos_con_stock_por_subcategoria;
+DROP FUNCTION IF EXISTS fn_dias_stock;
 
 DELIMITER //
-CREATE FUNCTION contar_articulos_con_stock_por_subcategoria(
-    p_nombre_subcategoria VARCHAR(200)
-) 
-RETURNS INT
+CREATE FUNCTION fn_dias_stock(
+    p_sku VARCHAR(10)
+) RETURNS INT
 DETERMINISTIC
 BEGIN
-    DECLARE total_articulos_con_stock INT;
+    DECLARE stock_actual INT;
+    DECLARE venta_diaria_promedio DECIMAL(10,2);
+    DECLARE dias INT;
     
-    SELECT COUNT(*) INTO total_articulos_con_stock
-    FROM articulos a
-    JOIN categoria_articulo ca ON a.id_categoria_articulo = ca.id_categoria_articulo
-    WHERE ca.nombre_subcategoria = p_nombre_subcategoria
-      AND a.stock > 0;
+    -- Obtener stock actual
+    SET stock_actual = fn_stock_actual(p_sku);
     
-    RETURN total_articulos_con_stock;
+    -- Calcular venta diaria promedio de los últimos 30 días
+    SELECT IFNULL(AVG(cantidad_sku), 0)
+    INTO venta_diaria_promedio
+    FROM ventas
+    WHERE sku = p_sku
+    AND fecha >= DATE_SUB(CURRENT_DATE, INTERVAL 30 DAY);
+    
+    -- Si no hay ventas, retornar 999 días
+    IF venta_diaria_promedio = 0 THEN
+        RETURN 999;
+    END IF;
+    
+    SET dias = FLOOR(stock_actual / venta_diaria_promedio);
+    
+    RETURN dias;
 END //
+DELIMITER ;
 
 -- FUNCION PARA DETERMINAR 
 
@@ -45,3 +57,28 @@ BEGIN
     
     RETURN categoria_nombre;
 END //
+
+-- Función para calcular el total de ventas de un producto en un período
+USE supermercado;
+DROP FUNCTION IF EXISTS fn_total_ventas_producto;
+
+DELIMITER //
+CREATE FUNCTION fn_total_ventas_producto(
+    p_sku VARCHAR(10),
+    p_fecha_inicio DATETIME,
+    p_fecha_fin DATETIME
+) RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE total DECIMAL(10,2);
+    
+    SELECT SUM(v.cantidad_sku * a.costo * (1 + a.iva))
+    INTO total
+    FROM ventas v
+    JOIN articulos a ON v.sku = a.sku
+    WHERE v.sku = p_sku
+    AND v.fecha BETWEEN p_fecha_inicio AND p_fecha_fin;
+    
+    RETURN IFNULL(total, 0);
+END //
+DELIMITER ;

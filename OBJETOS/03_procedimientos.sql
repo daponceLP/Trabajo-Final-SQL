@@ -1,7 +1,7 @@
---Procedimiento para agregar nuevos proveedores al sistema.
+-- Procedimiento para agregar nuevos proveedores al sistema.
 
 USE supermercado;
-DROP STORED PROCEDURE IF EXISTS agregar_proveedor
+DROP PROCEDURE IF EXISTS agregar_proveedor
 
 DELIMITER //
 CREATE PROCEDURE agregar_proveedor(
@@ -17,10 +17,10 @@ BEGIN
 END //
 DELIMITER ;
 
---Procedimiento para generar reporte de ventas en una fecha determinada
+-- Procedimiento para generar reporte de ventas en una fecha determinada
 
 USE supermercado;
-DROP STORED PROCEDURE IF EXISTS agregar_proveedor
+DROP PROCEDURE IF EXISTS ventas_por_fecha
 
 DELIMITER //
 CREATE PROCEDURE ventas_por_fecha(
